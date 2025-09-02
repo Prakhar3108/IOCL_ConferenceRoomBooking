@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Room Booking - Admin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="theme-toggle" aria-label="Toggle dark mode">🌙 Dark Mode</button>
+  <div id="login-container">
+    <h1>Admin Login</h1>
+    <form id="login-form">
+      <label>Username:
+        <input type="text" id="username" required>
+      </label>
+      <label>Password:
+        <input type="password" id="password" required>
+      </label>
+      <button type="submit">Login</button>
+    </form>
+    <div id="login-message"></div>
+  </div>
+  <div id="admin-dashboard" style="display: none;">
+    <h1>Admin Dashboard</h1>
+    <h2>Pending Bookings</h2>
+    <ul id="pending-list"></ul>
+    <p class="footer-link">
+      <a href="index.html">Back to User Page</a>
+    </p>
+  </div>
+  <script src="admin-script.js"></script>
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    function setTheme(dark) {
+      document.body.setAttribute('data-theme', dark ? 'dark' : 'light');
+      toggle.textContent = dark ? '☀️ Light Mode' : '🌙 Dark Mode';
+    }
+    setTheme(prefersDark);
+    toggle.onclick = () => setTheme(document.body.getAttribute('data-theme') !== 'dark');
+  </script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Room Booking - Admin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="login-container">
+    <h1>Admin Login</h1>
+    <form id="login-form">
+      <label>Username:
+        <input type="text" id="username" required>
+      </label>
+      <label>Password:
+        <input type="password" id="password" required>
+      </label>
+      <button type="submit">Login</button>
+    </form>
+    <div id="login-message"></div>
+  </div>
+  <div id="admin-dashboard" style="display: none;">
+    <h1>Admin Dashboard</h1>
+    <h2>Pending Bookings</h2>
+    <ul id="pending-list"></ul>
+    <p class="footer-link">
+      <a href="index.html">Back to User Page</a>
+    </p>
+  </div>
+  <script src="admin-script.js"></script>
+</body>
+</html> -->
